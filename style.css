@@ -1,0 +1,125 @@
+* {
+    /* 初始化 */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 100%的窗口高度 */
+    height: 100vh;
+    /* 弹性布局 */
+    display: flex;
+    /* 设置主轴方向对齐方式为居中对齐 */
+    justify-content: center;
+    /* 设置交叉轴对齐方式为居中对齐 */
+    align-items: center;
+    /* 设置一个渐变色的背景 */
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+
+.card {
+    /* 相对定位 */
+    position: relative;
+    width: 300px;
+    height: 450px;
+    margin: 20px;
+    background-color: #758a99;
+    border-radius: 20px;
+    /* 设置溢出隐藏 */
+    overflow: hidden;
+    display: flex;
+    /* 设置card容器为主轴垂直方向，起点在上边沿*/
+    flex-direction: column;
+    /* 设置交叉轴对齐方式为居中对齐 */
+    align-items: center;
+    color: #fff;
+    /* 盒子阴影，可以显示出一种悬浮的效果。 */
+    box-shadow: 0 0 30px rgb(0, 0, 0.5);
+    /* 设置card的所有项目缩小比例为0，也就是都不缩小。 */
+    flex-shrink: 0;
+}
+
+.card .photo img {
+    width: 100%;
+    height: 100%;
+    /* 被替换的内容大小保持其宽高比，同时填充元素的整个内容框。 */
+    object-fit: cover;
+}
+
+/* 默认情况下是大图 */
+.card .photo {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+    overflow: hidden;
+    /* 动画过渡 */
+    transition: 1s;
+}
+
+/* 鼠标移入变成小图 */
+.card:hover .photo {
+    top: 30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgb(0, 0, 0, 0.8);
+}
+
+/* 这里加个黑色到透明的渐变背景，可以更好的看清楚名字。 */
+.card .photo::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50% #222);
+}
+
+.card h1 {
+    position: absolute;
+    top: 370px;
+    transition: 1s;
+}
+
+/* 鼠标经过card的时候，标题和图片一起缩小。 */
+.card:hover h1 {
+    top: 170px;
+}
+
+.card h2 {
+    margin-top: 220px;
+    width: 88%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    /* 设置文字大小和让文字水平方向居中对齐 */
+    font-size: 20px;
+    text-align: center;
+    /* h2 和下面的元素相隔20px */
+    margin-bottom: 20px;
+    /* 文字内容和边框相隔20px */
+    padding-bottom: 20px;
+}
+
+.card p {
+    width: 90%;
+    /* 文字缩进 */
+    text-indent: 32px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    /* 文字垂直居中对齐 */
+    line-height: 30px;
+}
+
+.card a {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 32px;
+    border-radius: 8px;
+}
+
+.card a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.3);
+}
